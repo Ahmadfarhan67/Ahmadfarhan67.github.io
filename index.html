@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Fashion Products & Earn Rewards</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#F4A7B9;--pink-dark:#E8758F;--pink-cta:#D44F73;--pink-light:#FDF0F3;--pink-mid:#FAD4DE;--beige:#F7F3EF;--gray:#8C8C8C;--dark:#1A1A1A;--text:#3D3D3D;--white:#fff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+header{background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);padding:16px 24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #F0E8EC;position:sticky;top:0;z-index:100}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:4px;color:var(--dark);text-transform:uppercase}
+.logo-divider{width:1px;height:22px;background:#E0D8DC}
+.logo-tag{font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:400}
+.hero{background:linear-gradient(160deg,var(--pink-light) 0%,var(--white) 52%,var(--beige) 100%);padding:56px 20px 52px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-80px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(244,167,185,0.2) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(247,243,239,0.9) 0%,transparent 65%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--pink-mid);color:#B84466;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:7px 18px;border-radius:100px;margin-bottom:24px;animation:fadeUp .55s ease both}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#E8758F;animation:pulse 2s infinite}
+h1{font-family:'Playfair Display',serif;font-size:clamp(30px,7vw,52px);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:20px;animation:fadeUp .6s ease .1s both}
+h1 em{color:var(--pink-cta);font-style:italic}
+.subheadline{font-size:clamp(15px,2.4vw,17px);color:var(--gray);max-width:520px;margin:0 auto 32px;line-height:1.7;font-weight:300;animation:fadeUp .6s ease .18s both}
+.req-box{background:linear-gradient(135deg,#FDE8EE,#FDF5F8);border:2px solid #F4C0CC;border-radius:16px;padding:20px 22px;max-width:490px;margin:0 auto 36px;text-align:left;display:flex;gap:14px;align-items:flex-start;box-shadow:0 6px 20px rgba(232,117,143,0.18);animation:fadeUp .6s ease .26s both}
+.req-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.req-title{font-size:15px;font-weight:700;color:#B84466;margin-bottom:5px}
+.req-sub{font-size:13px;color:#9A5060;line-height:1.6}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#E8758F 0%,#D44F73 100%);color:#fff;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:600;letter-spacing:.4px;padding:18px 48px;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(212,79,115,0.38);transition:transform .22s ease,box-shadow .22s ease;animation:fadeUp .6s ease .34s both;position:relative;overflow:hidden}
+.cta-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.14),transparent);border-radius:inherit;pointer-events:none}
+.cta-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 36px rgba(212,79,115,0.46)}
+.cta-btn:active{transform:scale(.98)}
+.cta-note{font-size:12px;color:var(--gray);margin-top:14px;animation:fadeUp .6s ease .4s both}
+.how-section{background:var(--beige);padding:72px 20px}
+.section-eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--pink-dark);text-align:center;margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(24px,4.5vw,36px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:12px;line-height:1.2}
+.section-sub{text-align:center;color:var(--gray);font-size:15px;max-width:420px;margin:0 auto 52px;line-height:1.65}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:860px;margin:0 auto}
+.step-card{background:var(--white);border-radius:20px;padding:36px 26px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .25s ease,box-shadow .25s ease;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--pink-cta))}
+.step-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.10)}
+.step-num{width:46px;height:46px;border-radius:50%;background:var(--pink-light);color:var(--pink-cta);font-family:'Playfair Display',serif;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.step-icon{font-size:32px;margin-bottom:14px;display:block}
+.step-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--dark);margin-bottom:10px}
+.step-desc{font-size:13.5px;color:var(--gray);line-height:1.65}
+.rewards-section{background:var(--white);padding:72px 20px}
+.rewards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;max-width:680px;margin:0 auto 52px}
+.reward-card{background:linear-gradient(145deg,#FDF5F7,var(--white));border:1px solid #F4D0D8;border-radius:18px;padding:30px 18px;text-align:center;transition:transform .22s ease,box-shadow .22s ease}
+.reward-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(232,117,143,0.14)}
+.reward-emoji{font-size:36px;margin-bottom:14px;display:block}
+.reward-name{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.reward-detail{font-size:12px;color:var(--gray)}
+.cta-center{text-align:center}
+.trust-section{background:var(--beige);padding:72px 20px}
+.trust-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:800px;margin:0 auto}
+.trust-item{background:var(--white);border-radius:18px;padding:30px 22px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:transform .22s ease}
+.trust-item:hover{transform:translateY(-3px)}
+.trust-icon{font-size:28px;margin-bottom:12px;display:block}
+.trust-stat{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--dark);margin-bottom:5px}
+.trust-desc{font-size:12.5px;color:var(--gray);line-height:1.55}
+footer{background:#1C1C1C;padding:40px 20px;text-align:center}
+.footer-brand{font-family:'Playfair Display',serif;font-size:16px;color:rgba(255,255,255,.5);letter-spacing:4px;margin-bottom:18px;text-transform:uppercase}
+.disclaimer{font-size:11.5px;color:rgba(255,255,255,.32);max-width:480px;margin:0 auto 12px;line-height:1.7}
+.copyright{font-size:11px;color:rgba(255,255,255,.18)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <span class="logo-brand">SHEIN</span>
+    <div class="logo-divider"></div>
+    <span class="logo-tag">Review Rewards</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span>Trending Review Opportunity</div>
+  <h1>Review <em>SHEIN-Style</em><br>Products &amp; Get Paid</h1>
+  <p class="subheadline">Complete simple fashion-related review offers and earn cash, gift cards, or shopping rewards.</p>
+
+  <div class="req-box">
+    <span class="req-icon">📋</span>
+    <div>
+      <p class="req-title">To enroll, complete a minimum of 3 deals.</p>
+      <p class="req-sub">Deals are quick, review-based offers required to unlock eligibility and claim your rewards.</p>
+    </div>
+  </div>
+
+  <a href="https://trkio.org/aff_c?offer_id=1224&aff_id=45076" class="cta-btn" target="_blank" rel="noopener">✦ Start Reviewing Now</a>
+  <p class="cta-note">Free to join &nbsp;·&nbsp; No credit card required</p>
+</section>
+
+<section class="how-section">
+  <p class="section-eyebrow">Simple Process</p>
+  <h2 class="section-title">How It Works</h2>
+  <p class="section-sub">Three easy steps between you and your fashion rewards.</p>
+  <div class="steps">
+    <div class="step-card reveal">
+      <span class="step-icon">🛍️</span>
+      <div class="step-num">1</div>
+      <h3 class="step-title">Access Review Offers</h3>
+      <p class="step-desc">Browse available fashion-related review offers and select the ones that interest you.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:.1s">
+      <span class="step-icon">✅</span>
+      <div class="step-num">2</div>
+      <h3 class="step-title">Complete At Least 3 Deals</h3>
+      <p class="step-desc">Finish a minimum of 3 review-based deals to meet the eligibility requirement.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:.2s">
+      <span class="step-icon">🎁</span>
+      <div class="step-num">3</div>
+      <h3 class="step-title">Unlock Rewards Eligibility</h3>
+      <p class="step-desc">Once qualified, claim your cash, gift cards, or shopping credits.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rewards-section">
+  <p class="section-eyebrow">What You Can Earn</p>
+  <h2 class="section-title">Your Reward Options</h2>
+  <p class="section-sub">Choose how you want to be rewarded for your reviews.</p>
+  <div class="rewards-grid">
+    <div class="reward-card reveal">
+      <span class="reward-emoji">💵</span>
+      <p class="reward-name">Cash Rewards</p>
+      <p class="reward-detail">Real money for your time</p>
+    </div>
+    <div class="reward-card reveal" style="transition-delay:.1s">
+      <span class="reward-emoji">🎫</span>
+      <p class="reward-name">Gift Cards</p>
+      <p class="reward-detail">Popular retail &amp; fashion brands</p>
+    </div>
+    <div class="reward-card reveal" style="transition-delay:.2s">
+      <span class="reward-emoji">🛒</span>
+      <p class="reward-name">Shopping Credits</p>
+      <p class="reward-detail">Use for your next fashion haul</p>
+    </div>
+  </div>
+  <div class="cta-center reveal">
+    <a href="https://trkio.org/aff_c?offer_id=1224&aff_id=45076" class="cta-btn" target="_blank" rel="noopener">✦ Claim Your Rewards</a>
+  </div>
+</section>
+
+<section class="trust-section">
+  <p class="section-eyebrow">Why Shoppers Love It</p>
+  <h2 class="section-title">Trusted by Fashion Lovers</h2>
+  <p class="section-sub">Join a growing community of reviewers earning rewards every day.</p>
+  <div class="trust-row">
+    <div class="trust-item reveal">
+      <span class="trust-icon">📈</span>
+      <p class="trust-stat">High Completion Rate</p>
+      <p class="trust-desc">Most reviewers finish their required deals quickly and easily</p>
+    </div>
+    <div class="trust-item reveal" style="transition-delay:.1s">
+      <span class="trust-icon">👗</span>
+      <p class="trust-stat">Popular with Fashion Shoppers</p>
+      <p class="trust-desc">Designed for style-forward deal seekers who love fashion</p>
+    </div>
+    <div class="trust-item reveal" style="transition-delay:.2s">
+      <span class="trust-icon">⚡</span>
+      <p class="trust-stat">Fast Reward Processing</p>
+      <p class="trust-desc">Rewards are processed efficiently once eligibility is confirmed</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-brand">Review Rewards</p>
+  <p class="disclaimer">This site is not owned by or officially affiliated with SHEIN or SHEIN Group. Brand names and trademarks are referenced for descriptive purposes only. All trademarks belong to their respective owners.</p>
+  <p class="copyright">&copy; 2025 Review Rewards. All rights reserved.</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}
+  });
+},{threshold:0.12});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
