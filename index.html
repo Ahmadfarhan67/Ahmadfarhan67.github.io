@@ -2,189 +2,274 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Review Fashion Products & Earn Rewards</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Shein Gift Card</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--pink:#F4A7B9;--pink-dark:#E8758F;--pink-cta:#D44F73;--pink-light:#FDF0F3;--pink-mid:#FAD4DE;--beige:#F7F3EF;--gray:#8C8C8C;--dark:#1A1A1A;--text:#3D3D3D;--white:#fff}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
-header{background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);padding:16px 24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #F0E8EC;position:sticky;top:0;z-index:100}
-.logo-wrap{display:flex;align-items:center;gap:12px}
-.logo-brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:4px;color:var(--dark);text-transform:uppercase}
-.logo-divider{width:1px;height:22px;background:#E0D8DC}
-.logo-tag{font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:400}
-.hero{background:linear-gradient(160deg,var(--pink-light) 0%,var(--white) 52%,var(--beige) 100%);padding:56px 20px 52px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-100px;right:-80px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(244,167,185,0.2) 0%,transparent 65%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(247,243,239,0.9) 0%,transparent 65%);pointer-events:none}
-.badge{display:inline-flex;align-items:center;gap:7px;background:var(--pink-mid);color:#B84466;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:7px 18px;border-radius:100px;margin-bottom:24px;animation:fadeUp .55s ease both}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:#E8758F;animation:pulse 2s infinite}
-h1{font-family:'Playfair Display',serif;font-size:clamp(30px,7vw,52px);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:20px;animation:fadeUp .6s ease .1s both}
-h1 em{color:var(--pink-cta);font-style:italic}
-.subheadline{font-size:clamp(15px,2.4vw,17px);color:var(--gray);max-width:520px;margin:0 auto 32px;line-height:1.7;font-weight:300;animation:fadeUp .6s ease .18s both}
-.req-box{background:linear-gradient(135deg,#FDE8EE,#FDF5F8);border:2px solid #F4C0CC;border-radius:16px;padding:20px 22px;max-width:490px;margin:0 auto 36px;text-align:left;display:flex;gap:14px;align-items:flex-start;box-shadow:0 6px 20px rgba(232,117,143,0.18);animation:fadeUp .6s ease .26s both}
-.req-icon{font-size:24px;flex-shrink:0;margin-top:2px}
-.req-title{font-size:15px;font-weight:700;color:#B84466;margin-bottom:5px}
-.req-sub{font-size:13px;color:#9A5060;line-height:1.6}
-.cta-btn{display:inline-block;background:linear-gradient(135deg,#E8758F 0%,#D44F73 100%);color:#fff;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:600;letter-spacing:.4px;padding:18px 48px;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(212,79,115,0.38);transition:transform .22s ease,box-shadow .22s ease;animation:fadeUp .6s ease .34s both;position:relative;overflow:hidden}
-.cta-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.14),transparent);border-radius:inherit;pointer-events:none}
-.cta-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 36px rgba(212,79,115,0.46)}
-.cta-btn:active{transform:scale(.98)}
-.cta-note{font-size:12px;color:var(--gray);margin-top:14px;animation:fadeUp .6s ease .4s both}
-.how-section{background:var(--beige);padding:72px 20px}
-.section-eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--pink-dark);text-align:center;margin-bottom:10px}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(24px,4.5vw,36px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:12px;line-height:1.2}
-.section-sub{text-align:center;color:var(--gray);font-size:15px;max-width:420px;margin:0 auto 52px;line-height:1.65}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:860px;margin:0 auto}
-.step-card{background:var(--white);border-radius:20px;padding:36px 26px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .25s ease,box-shadow .25s ease;position:relative;overflow:hidden}
-.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--pink-cta))}
-.step-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.10)}
-.step-num{width:46px;height:46px;border-radius:50%;background:var(--pink-light);color:var(--pink-cta);font-family:'Playfair Display',serif;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
-.step-icon{font-size:32px;margin-bottom:14px;display:block}
-.step-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--dark);margin-bottom:10px}
-.step-desc{font-size:13.5px;color:var(--gray);line-height:1.65}
-.rewards-section{background:var(--white);padding:72px 20px}
-.rewards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:16px;max-width:680px;margin:0 auto 52px}
-.reward-card{background:linear-gradient(145deg,#FDF5F7,var(--white));border:1px solid #F4D0D8;border-radius:18px;padding:30px 18px;text-align:center;transition:transform .22s ease,box-shadow .22s ease}
-.reward-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(232,117,143,0.14)}
-.reward-emoji{font-size:36px;margin-bottom:14px;display:block}
-.reward-name{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:4px}
-.reward-detail{font-size:12px;color:var(--gray)}
-.cta-center{text-align:center}
-.trust-section{background:var(--beige);padding:72px 20px}
-.trust-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:800px;margin:0 auto}
-.trust-item{background:var(--white);border-radius:18px;padding:30px 22px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.05);transition:transform .22s ease}
-.trust-item:hover{transform:translateY(-3px)}
-.trust-icon{font-size:28px;margin-bottom:12px;display:block}
-.trust-stat{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--dark);margin-bottom:5px}
-.trust-desc{font-size:12.5px;color:var(--gray);line-height:1.55}
-footer{background:#1C1C1C;padding:40px 20px;text-align:center}
-.footer-brand{font-family:'Playfair Display',serif;font-size:16px;color:rgba(255,255,255,.5);letter-spacing:4px;margin-bottom:18px;text-transform:uppercase}
-.disclaimer{font-size:11.5px;color:rgba(255,255,255,.32);max-width:480px;margin:0 auto 12px;line-height:1.7}
-.copyright{font-size:11px;color:rgba(255,255,255,.18)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 16px 48px;
+  }
+
+  /* Popup bar */
+  .popup-bar {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 50px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 420px;
+    min-height: 42px;
+    overflow: hidden;
+  }
+  .popup-bar .sparkle { font-size: 17px; flex-shrink: 0; }
+  .popup-slide-wrap { overflow: hidden; height: 22px; flex: 1; }
+  .popup-slide {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+  }
+  .popup-slide span {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #222;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+  .popup-slide span em {
+    font-style: normal;
+    color: #000;
+    font-weight: 800;
+    background: #000;
+    color: #fff;
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Card */
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,.07);
+  }
+
+  /* Logo area */
+  .logo-area {
+    background: #fff;
+    padding: 30px 24px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .shein-logo { height: 76px; width: 76px; border-radius: 16px; }
+
+  /* Reward */
+  .reward-section {
+    background: #fff;
+    padding: 26px 24px 0;
+    text-align: center;
+  }
+  .reward-amount {
+    font-size: 72px;
+    font-weight: 800;
+    color: #111;
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+  .reward-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #aaa;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* Divider */
+  .divider {
+    margin: 22px 24px 0;
+    height: 1px;
+    background: #f0f0f0;
+  }
+
+  /* Steps */
+  .steps-section { background: #fff; padding: 22px 24px 26px; }
+  .step { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-num {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: #111; color: #fff;
+    font-size: 15px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-text { font-size: 15.5px; font-weight: 600; color: #222; }
+
+  /* CTA */
+  .cta-wrap { padding: 0 20px 24px; background: #fff; }
+  .cta-btn {
+    display: block; width: 100%;
+    background: #111; color: #fff;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 17px 24px; border-radius: 50px;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    transition: background .2s, transform .1s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cta-btn:active { background: #333; transform: scale(0.98); }
+
+  /* FAQ */
+  .faq-section {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 14px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.07);
+    overflow: hidden;
+  }
+  .faq-item {
+    padding: 18px 22px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .faq-q::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #111;
+    flex-shrink: 0;
+  }
+  .faq-a {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: #777;
+    line-height: 1.6;
+    padding-left: 12px;
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-wrap">
-    <span class="logo-brand">SHEIN</span>
-    <div class="logo-divider"></div>
-    <span class="logo-tag">Review Rewards</span>
+<!-- Rotating popup -->
+<div class="popup-bar">
+  <span class="sparkle">✨</span>
+  <div class="popup-slide-wrap">
+    <div class="popup-slide" id="popupSlide"></div>
   </div>
-</header>
+</div>
 
-<section class="hero">
-  <div class="badge"><span class="badge-dot"></span>Trending Review Opportunity</div>
-  <h1>Review <em>SHEIN-Style</em><br>Products &amp; Get Paid</h1>
-  <p class="subheadline">Complete simple fashion-related review offers and earn cash, gift cards, or shopping rewards.</p>
-
-  <div class="req-box">
-    <span class="req-icon">📋</span>
-    <div>
-      <p class="req-title">To enroll, complete a minimum of 3 deals.</p>
-      <p class="req-sub">Deals are quick, review-based offers required to unlock eligibility and claim your rewards.</p>
-    </div>
+<!-- Main card -->
+<div class="card">
+  <div class="logo-area">
+    <img class="shein-logo" src="data:image/webp;base64,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" alt="SHEIN">
   </div>
 
-  <a href="https://trkio.org/aff_c?offer_id=1224&aff_id=45076" class="cta-btn" target="_blank" rel="noopener">✦ Start Reviewing Now</a>
-  <p class="cta-note">Free to join &nbsp;·&nbsp; No credit card required</p>
-</section>
-
-<section class="how-section">
-  <p class="section-eyebrow">Simple Process</p>
-  <h2 class="section-title">How It Works</h2>
-  <p class="section-sub">Three easy steps between you and your fashion rewards.</p>
-  <div class="steps">
-    <div class="step-card reveal">
-      <span class="step-icon">🛍️</span>
-      <div class="step-num">1</div>
-      <h3 class="step-title">Access Review Offers</h3>
-      <p class="step-desc">Browse available fashion-related review offers and select the ones that interest you.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:.1s">
-      <span class="step-icon">✅</span>
-      <div class="step-num">2</div>
-      <h3 class="step-title">Complete At Least 3 Deals</h3>
-      <p class="step-desc">Finish a minimum of 3 review-based deals to meet the eligibility requirement.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:.2s">
-      <span class="step-icon">🎁</span>
-      <div class="step-num">3</div>
-      <h3 class="step-title">Unlock Rewards Eligibility</h3>
-      <p class="step-desc">Once qualified, claim your cash, gift cards, or shopping credits.</p>
-    </div>
+  <div class="reward-section">
+    <div class="reward-amount">$750</div>
+    <div class="reward-label">Shein Gift Card</div>
   </div>
-</section>
 
-<section class="rewards-section">
-  <p class="section-eyebrow">What You Can Earn</p>
-  <h2 class="section-title">Your Reward Options</h2>
-  <p class="section-sub">Choose how you want to be rewarded for your reviews.</p>
-  <div class="rewards-grid">
-    <div class="reward-card reveal">
-      <span class="reward-emoji">💵</span>
-      <p class="reward-name">Cash Rewards</p>
-      <p class="reward-detail">Real money for your time</p>
-    </div>
-    <div class="reward-card reveal" style="transition-delay:.1s">
-      <span class="reward-emoji">🎫</span>
-      <p class="reward-name">Gift Cards</p>
-      <p class="reward-detail">Popular retail &amp; fashion brands</p>
-    </div>
-    <div class="reward-card reveal" style="transition-delay:.2s">
-      <span class="reward-emoji">🛒</span>
-      <p class="reward-name">Shopping Credits</p>
-      <p class="reward-detail">Use for your next fashion haul</p>
-    </div>
-  </div>
-  <div class="cta-center reveal">
-    <a href="https://trkio.org/aff_c?offer_id=1224&aff_id=45076" class="cta-btn" target="_blank" rel="noopener">✦ Claim Your Rewards</a>
-  </div>
-</section>
+  <div class="divider"></div>
 
-<section class="trust-section">
-  <p class="section-eyebrow">Why Shoppers Love It</p>
-  <h2 class="section-title">Trusted by Fashion Lovers</h2>
-  <p class="section-sub">Join a growing community of reviewers earning rewards every day.</p>
-  <div class="trust-row">
-    <div class="trust-item reveal">
-      <span class="trust-icon">📈</span>
-      <p class="trust-stat">High Completion Rate</p>
-      <p class="trust-desc">Most reviewers finish their required deals quickly and easily</p>
-    </div>
-    <div class="trust-item reveal" style="transition-delay:.1s">
-      <span class="trust-icon">👗</span>
-      <p class="trust-stat">Popular with Fashion Shoppers</p>
-      <p class="trust-desc">Designed for style-forward deal seekers who love fashion</p>
-    </div>
-    <div class="trust-item reveal" style="transition-delay:.2s">
-      <span class="trust-icon">⚡</span>
-      <p class="trust-stat">Fast Reward Processing</p>
-      <p class="trust-desc">Rewards are processed efficiently once eligibility is confirmed</p>
-    </div>
+  <div class="steps-section">
+    <div class="step"><div class="step-num">1</div><div class="step-text">Click The Button Below</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Enter Your Basic Info</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Complete 3–5 Deals</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Claim Your Reward</div></div>
   </div>
-</section>
 
-<footer>
-  <p class="footer-brand">Review Rewards</p>
-  <p class="disclaimer">This site is not owned by or officially affiliated with SHEIN or SHEIN Group. Brand names and trademarks are referenced for descriptive purposes only. All trademarks belong to their respective owners.</p>
-  <p class="copyright">&copy; 2025 Review Rewards. All rights reserved.</p>
-</footer>
+  <div class="cta-wrap">
+    <a href="#" class="cta-btn">CLAIM YOUR GIFT CARD →</a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-item">
+    <div class="faq-q">Is this free?</div>
+    <div class="faq-a">Yes. Completely free, no hidden charges.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What are deals?</div>
+    <div class="faq-a">Deals are random quick tasks like filling out a form, answering a survey, or testing an app that can be completed in an average of 2–10 mins.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How fast do I get it?</div>
+    <div class="faq-a">Check your email within 15 minutes and claim it.</div>
+  </div>
+</div>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}
-  });
-},{threshold:0.12});
-reveals.forEach(el=>observer.observe(el));
+  const entries = [
+    { name: "Amanda K.", amount: "$450" },
+    { name: "Jessica M.", amount: "$750" },
+    { name: "Priya S.",   amount: "$300" },
+    { name: "Lauren T.",  amount: "$600" },
+    { name: "Mia R.",     amount: "$500" },
+    { name: "Sophia W.",  amount: "$750" },
+    { name: "Chloe B.",   amount: "$400" },
+    { name: "Nina D.",    amount: "$550" },
+    { name: "Aisha K.",   amount: "$350" },
+    { name: "Emma L.",    amount: "$700" },
+  ];
+  const slide = document.getElementById('popupSlide');
+  let idx = 0;
+  function buildSlides(current, next) {
+    slide.innerHTML = '';
+    [current, next].forEach(e => {
+      const s = document.createElement('span');
+      s.innerHTML = `${e.name} claimed <em>${e.amount}</em>!`;
+      slide.appendChild(s);
+    });
+    slide.style.transition = 'none';
+    slide.style.transform = 'translateY(0)';
+  }
+  function rotate() {
+    const current = entries[idx % entries.length];
+    const next    = entries[(idx + 1) % entries.length];
+    buildSlides(current, next);
+    setTimeout(() => {
+      slide.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
+      slide.style.transform  = 'translateY(-22px)';
+      idx = (idx + 1) % entries.length;
+    }, 2800);
+  }
+  rotate();
+  setInterval(rotate, 3500);
 </script>
 </body>
 </html>
