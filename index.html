@@ -3,273 +3,841 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Shein Gift Card</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Target Student Discount – Claim Yours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: #f2f2f2;
+    font-family: 'Inter', sans-serif;
+    background-color: #f5eeee;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 16px 16px 48px;
+    padding: 28px 16px 48px;
   }
 
-  /* Popup bar */
-  .popup-bar {
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 50px;
-    padding: 10px 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.07);
-    margin-bottom: 16px;
+  .page-wrap {
     width: 100%;
-    max-width: 420px;
-    min-height: 42px;
-    overflow: hidden;
+    max-width: 400px;
   }
-  .popup-bar .sparkle { font-size: 17px; flex-shrink: 0; }
-  .popup-slide-wrap { overflow: hidden; height: 22px; flex: 1; }
-  .popup-slide {
+
+  /* ── MAIN CARD ── */
+  .main-card {
+    background: #fff;
+    border-radius: 22px;
+    padding: 30px 20px 26px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     display: flex;
     flex-direction: column;
-    transition: transform 0.5s cubic-bezier(.4,0,.2,1);
-  }
-  .popup-slide span {
-    font-size: 13.5px;
-    font-weight: 600;
-    color: #222;
-    line-height: 22px;
-    white-space: nowrap;
-  }
-  .popup-slide span em {
-    font-style: normal;
-    color: #000;
-    font-weight: 800;
-    background: #000;
-    color: #fff;
-    padding: 1px 7px;
-    border-radius: 20px;
-    font-size: 12px;
-    letter-spacing: 0.3px;
+    align-items: center;
   }
 
-  /* Card */
-  .card {
-    width: 100%;
-    max-width: 420px;
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 2px 16px rgba(0,0,0,.07);
-  }
-
-  /* Logo area */
-  .logo-area {
-    background: #fff;
-    padding: 30px 24px 26px;
+  /* Logo */
+  .logo-wrap {
+    width: 64px;
+    height: 64px;
+    background: #CC0000;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(204,0,0,0.30);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 18px;
+    flex-shrink: 0;
   }
-  .shein-logo { height: 76px; width: 76px; border-radius: 16px; }
 
-  /* Reward */
-  .reward-section {
-    background: #fff;
-    padding: 26px 24px 0;
-    text-align: center;
-  }
-  .reward-amount {
-    font-size: 72px;
+  /* Title */
+  .card-title {
+    font-size: 24px;
     font-weight: 800;
     color: #111;
-    line-height: 1;
-    letter-spacing: -3px;
-  }
-  .reward-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: #aaa;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    margin-top: 6px;
+    text-align: center;
+    margin-bottom: 6px;
   }
 
-  /* Divider */
-  .divider {
-    margin: 22px 24px 0;
-    height: 1px;
-    background: #f0f0f0;
+  /* Verified row */
+  .verified-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 22px;
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    color: #aaa;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    align-self: flex-start;
   }
 
   /* Steps */
-  .steps-section { background: #fff; padding: 22px 24px 26px; }
-  .step { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-  .step:last-child { margin-bottom: 0; }
-  .step-num {
-    width: 34px; height: 34px; border-radius: 50%;
-    background: #111; color: #fff;
-    font-size: 15px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .step-text { font-size: 15.5px; font-weight: 600; color: #222; }
-
-  /* CTA */
-  .cta-wrap { padding: 0 20px 24px; background: #fff; }
-  .cta-btn {
-    display: block; width: 100%;
-    background: #111; color: #fff;
-    text-align: center;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px; font-weight: 700;
-    letter-spacing: 1px; text-transform: uppercase;
-    padding: 17px 24px; border-radius: 50px;
-    border: none; cursor: pointer;
-    text-decoration: none;
-    transition: background .2s, transform .1s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .cta-btn:active { background: #333; transform: scale(0.98); }
-
-  /* FAQ */
-  .faq-section {
+  .steps-list {
     width: 100%;
-    max-width: 420px;
-    margin-top: 14px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 2px 16px rgba(0,0,0,.07);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
   }
-  .faq-item {
-    padding: 18px 22px;
-    border-bottom: 1px solid #f2f2f2;
-  }
-  .faq-item:last-child { border-bottom: none; }
-  .faq-q {
-    font-size: 14.5px;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 5px;
+
+  .step-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    background: #F7F8F7;
+    border-radius: 13px;
+    padding: 13px 14px;
+    margin-bottom: 7px;
+    border: 1px solid #EDEFED;
   }
-  .faq-q::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 4px;
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: #FFECEC;
+    border: 1px solid #FFCCCC;
+    color: #CC0000;
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body {
+    flex: 1;
+  }
+
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+  }
+
+  .step-desc {
+    font-size: 12px;
+    color: #777;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .step-badge {
+    background: #FFECEC;
+    color: #CC0000;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 7px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+
+  /* CTA social proof */
+  .cta-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .cta-avatars {
+    display: flex;
+    align-items: center;
+  }
+
+  .cta-avatar {
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: #111;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 800;
+    color: #222;
+    margin-left: -6px;
     flex-shrink: 0;
   }
-  .faq-a {
+
+  .cta-avatar:first-child { margin-left: 0; }
+
+  .cta-social-text {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.35;
+  }
+
+  .cta-social-text strong {
+    color: #111;
+    font-weight: 700;
+  }
+
+  .cta-stars {
+    display: flex;
+    gap: 1px;
+    align-items: center;
+  }
+
+  .cta-star { color: #F5A623; font-size: 10px; }
+
+  /* CTA */
+  .cta-btn {
+    display: block;
+    width: 100%;
+    background: #CC0000;
+    border-radius: 50px;
+    padding: 18px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(204,0,0,0.35);
+    margin-bottom: 16px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+
+  .cta-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 3px 12px rgba(204,0,0,0.25);
+  }
+
+  /* Trustpilot */
+  .trustpilot-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .tp-label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #191919;
+  }
+
+  .tp-stars {
+    display: flex;
+    gap: 3px;
+  }
+
+  .tp-star {
+    width: 19px;
+    height: 19px;
+    background: #00B67A;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tp-star.half {
+    background: linear-gradient(90deg, #00B67A 55%, #ddd 55%);
+  }
+
+  /* ── BELOW CARD ── */
+  .below-card {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 12px;
+  }
+
+  /* Trust bar */
+  .trust-bar {
+    background: #fff;
+    border-radius: 14px;
+    padding: 13px 6px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    margin-bottom: 10px;
+  }
+
+  .trust-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 0 6px;
+  }
+
+  .trust-item + .trust-item {
+    border-left: 1px solid #F0F0F0;
+  }
+
+  .trust-icon {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .trust-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 0 14px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .testimonials-label {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    color: #aaa;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 12px;
+    padding: 0 16px;
+  }
+
+  .testimonials-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 4px 16px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .testimonials-scroll::-webkit-scrollbar { display: none; }
+
+  .testi-card {
+    min-width: 200px;
+    background: #fff;
+    border-radius: 13px;
+    padding: 14px 14px 12px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.09);
+  }
+
+  .testi-quote {
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.5;
+    font-style: italic;
+    margin-bottom: 9px;
+  }
+
+  .testi-name {
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #CC0000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    font-size: 10.5px;
+    color: #bbb;
+    text-align: center;
+    line-height: 1.55;
+    padding: 4px 8px 2px;
+    margin-bottom: 4px;
+  }
+
+  /* Social proof strip */
+  .social-strip {
+    background: #fff;
+    border-radius: 14px;
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    margin-bottom: 10px;
+  }
+
+  .avatars {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #222;
+    margin-left: -7px;
+    flex-shrink: 0;
+  }
+
+  .avatar:first-child { margin-left: 0; }
+  .av-y { background: #FFD93D; }
+  .av-g { background: #6BCB77; }
+  .av-b { background: #4D96FF; }
+  .av-r { background: #FF6B6B; }
+
+  .social-text {
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .social-text strong {
+    color: #111;
+  }
+
+  /* FAQ */
+  .faq-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 6px 16px 4px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #F0F0F0;
+    overflow: hidden;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    cursor: pointer;
+    gap: 10px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .faq-q {
     font-size: 13.5px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  .faq-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
     font-weight: 400;
-    color: #777;
-    line-height: 1.6;
-    padding-left: 12px;
+    color: #CC0000;
+    transition: background 0.25s, transform 0.3s;
+    line-height: 1;
+  }
+
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    background: #FFECEC;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 120px;
+  }
+
+  .faq-answer p {
+    font-size: 13px;
+    color: #555;
+    padding-bottom: 14px;
+    line-height: 1.55;
+  }
+
+  /* ── POPUP NOTIFICATION ── */
+  .popup-notif {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    max-width: 390px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    padding: 11px 13px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.13);
+    border-left: 3px solid #CC0000;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    z-index: 1000;
+    transform: translateY(-90px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(.34,1.56,.64,1);
+  }
+
+  .popup-notif.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .popup-avatar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: #CC0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .popup-body {
+    flex: 1;
+  }
+
+  .popup-name {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+  }
+
+  .popup-time {
+    font-size: 11px;
+    color: #CC0000;
+    font-weight: 600;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ── RESPONSIVE: mid-range phones ── */
+  @media (max-height: 780px) {
+    body { padding-top: 18px; }
+    .logo-wrap { width: 54px; height: 54px; }
+    .main-card { padding: 22px 20px 20px; }
+    .step-row { padding: 10px 12px; margin-bottom: 6px; }
+    .step-title { font-size: 13px; }
+    .step-desc { font-size: 11.5px; }
+    .cta-btn { padding: 15px; font-size: 14px; }
+    .verified-row { margin-bottom: 16px; }
+  }
+
+  @media (max-height: 700px) {
+    body { padding-top: 12px; }
+    .logo-wrap { width: 46px; height: 46px; }
+    .main-card { padding: 16px 18px; }
+    .step-row { padding: 9px 12px; gap: 10px; }
+    .step-num { width: 26px; height: 26px; min-width: 26px; font-size: 12px; }
+    .step-title { font-size: 13px; }
+    .step-desc { font-size: 11px; }
+    .step-badge { font-size: 9px; padding: 2px 7px; }
+    .cta-btn { padding: 13px; font-size: 13px; }
   }
 </style>
 </head>
 <body>
 
-<!-- Rotating popup -->
-<div class="popup-bar">
-  <span class="sparkle">✨</span>
-  <div class="popup-slide-wrap">
-    <div class="popup-slide" id="popupSlide"></div>
+<!-- POPUP NOTIFICATION -->
+<div class="popup-notif" id="popup">
+  <div class="popup-avatar" id="popupAvatar">KL</div>
+  <div class="popup-body">
+    <div class="popup-name" id="popupName">Kevin L. from Atlanta</div>
+    <div class="popup-time">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <circle cx="5" cy="5" r="4.5" stroke="#CC0000" stroke-width="1"/>
+        <path d="M5 2.5V5L6.5 6.5" stroke="#CC0000" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <span id="popupTime">3 min ago</span>
+      &nbsp;· ✓ Claimed discount
+    </div>
   </div>
 </div>
 
-<!-- Main card -->
-<div class="card">
-  <div class="logo-area">
-    <img class="shein-logo" src="data:image/webp;base64,UklGRjoaAABXRUJQVlA4WAoAAAA4AAAAxwAAxwAASUNDUEgMAAAAAAxITGlubwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFjcHJ0AAABUAAAADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAAABRyWFlaAAACGAAAABRnWFlaAAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRkAAACxAAAAIh2dWVkAAADTAAAAIZ2aWV3AAAD1AAAACRsdW1pAAAD+AAAABRtZWFzAAAEDAAAACR0ZWNoAAAEMAAAAAxyVFJDAAAEPAAACAxnVFJDAAAEPAAACAxiVFJDAAAEPAAACAx0ZXh0AAAAAENvcHlyaWdodCAoYykgMTk5OCBIZXdsZXR0LVBhY2thcmQgQ29tcGFueQAAZGVzYwAAAAAAAAASc1JHQiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAABJzUkdCIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z2Rlc2MAAAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkZXNjAAAAAAAAAC5JRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAC5JRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZGVzYwAAAAAAAAAsUmVmZXJlbmNlIFZpZXdpbmcgQ29uZGl0aW9uIGluIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAALFJlZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHZpZXcAAAAAABOk/gAUXy4AEM8UAAPtzAAEEwsAA1yeAAAAAVhZWiAAAAAAAEwJVgBQAAAAVx/nbWVhcwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAo8AAAACc2lnIAAAAABDUlQgY3VydgAAAAAAAAQAAAAABQAKAA8AFAAZAB4AIwAoAC0AMgA3ADsAQABFAEoATwBUAFkAXgBjAGgAbQByAHcAfACBAIYAiwCQAJUAmgCfAKQAqQCuALIAtwC8AMEAxgDLANAA1QDbAOAA5QDrAPAA9gD7AQEBBwENARMBGQEfASUBKwEyATgBPgFFAUwBUgFZAWABZwFuAXUBfAGDAYsBkgGaAaEBqQGxAbkBwQHJAdEB2QHhAekB8gH6AgMCDAIUAh0CJgIvAjgCQQJLAlQCXQJnAnECegKEAo4CmAKiAqwCtgLBAssC1QLgAusC9QMAAwsDFgMhAy0DOANDA08DWgNmA3IDfgOKA5YDogOuA7oDxwPTA+AD7AP5BAYEEwQgBC0EOwRIBFUEYwRxBH4EjASaBKgEtgTEBNME4QTwBP4FDQUcBSsFOgVJBVgFZwV3BYYFlgWmBbUFxQXVBeUF9gYGBhYGJwY3BkgGWQZqBnsGjAadBq8GwAbRBuMG9QcHBxkHKwc9B08HYQd0B4YHmQesB78H0gflB/gICwgfCDIIRghaCG4IggiWCKoIvgjSCOcI+wkQCSUJOglPCWQJeQmPCaQJugnPCeUJ+woRCicKPQpUCmoKgQqYCq4KxQrcCvMLCwsiCzkLUQtpC4ALmAuwC8gL4Qv5DBIMKgxDDFwMdQyODKcMwAzZDPMNDQ0mDUANWg10DY4NqQ3DDd4N+A4TDi4OSQ5kDn8Omw62DtIO7g8JDyUPQQ9eD3oPlg+zD88P7BAJECYQQxBhEH4QmxC5ENcQ9RETETERTxFtEYwRqhHJEegSBxImEkUSZBKEEqMSwxLjEwMTIxNDE2MTgxOkE8UT5RQGFCcUSRRqFIsUrRTOFPAVEhU0FVYVeBWbFb0V4BYDFiYWSRZsFo8WshbWFvoXHRdBF2UXiReuF9IX9xgbGEAYZRiKGK8Y1Rj6GSAZRRlrGZEZtxndGgQaKhpRGncanhrFGuwbFBs7G2MbihuyG9ocAhwqHFIcexyjHMwc9R0eHUcdcB2ZHcMd7B4WHkAeah6UHr4e6R8THz4faR+UH78f6iAVIEEgbCCYIMQg8CEcIUghdSGhIc4h+yInIlUigiKvIt0jCiM4I2YjlCPCI/AkHyRNJHwkqyTaJQklOCVoJZclxyX3JicmVyaHJrcm6CcYJ0kneierJ9woDSg/KHEooijUKQYpOClrKZ0p0CoCKjUqaCqbKs8rAis2K2krnSvRLAUsOSxuLKIs1y0MLUEtdi2rLeEuFi5MLoIuty7uLyQvWi+RL8cv/jA1MGwwpDDbMRIxSjGCMbox8jIqMmMymzLUMw0zRjN/M7gz8TQrNGU0njTYNRM1TTWHNcI1/TY3NnI2rjbpNyQ3YDecN9c4FDhQOIw4yDkFOUI5fzm8Ofk6Njp0OrI67zstO2s7qjvoPCc8ZTykPOM9Ij1hPaE94D4gPmA+oD7gPyE/YT+iP+JAI0BkQKZA50EpQWpBrEHuQjBCckK1QvdDOkN9Q8BEA0RHRIpEzkUSRVVFmkXeRiJGZ0arRvBHNUd7R8BIBUhLSJFI10kdSWNJqUnwSjdKfUrESwxLU0uaS+JMKkxyTLpNAk1KTZNN3E4lTm5Ot08AT0lPk0/dUCdQcVC7UQZRUFGbUeZSMVJ8UsdTE1NfU6pT9lRCVI9U21UoVXVVwlYPVlxWqVb3V0RXklfgWC9YfVjLWRpZaVm4WgdaVlqmWvVbRVuVW+VcNVyGXNZdJ114XcleGl5sXr1fD19hX7NgBWBXYKpg/GFPYaJh9WJJYpxi8GNDY5dj62RAZJRk6WU9ZZJl52Y9ZpJm6Gc9Z5Nn6Wg/aJZo7GlDaZpp8WpIap9q92tPa6dr/2xXbK9tCG1gbbluEm5rbsRvHm94b9FwK3CGcOBxOnGVcfByS3KmcwFzXXO4dBR0cHTMdSh1hXXhdj52m3b4d1Z3s3gReG54zHkqeYl553pGeqV7BHtje8J8IXyBfOF9QX2hfgF+Yn7CfyN/hH/lgEeAqIEKgWuBzYIwgpKC9INXg7qEHYSAhOOFR4Wrhg6GcobXhzuHn4gEiGmIzokziZmJ/opkisqLMIuWi/yMY4zKjTGNmI3/jmaOzo82j56QBpBukNaRP5GokhGSepLjk02TtpQglIqU9JVflcmWNJaflwqXdZfgmEyYuJkkmZCZ/JpomtWbQpuvnByciZz3nWSd0p5Anq6fHZ+Ln/qgaaDYoUehtqImopajBqN2o+akVqTHpTilqaYapoum/adup+CoUqjEqTepqaocqo+rAqt1q+msXKzQrUStuK4trqGvFq+LsACwdbDqsWCx1rJLssKzOLOutCW0nLUTtYq2AbZ5tvC3aLfguFm40blKucK6O7q1uy67p7whvJu9Fb2Pvgq+hL7/v3q/9cBwwOzBZ8Hjwl/C28NYw9TEUcTOxUvFyMZGxsPHQce/yD3IvMk6ybnKOMq3yzbLtsw1zLXNNc21zjbOts83z7jQOdC60TzRvtI/0sHTRNPG1EnUy9VO1dHWVdbY11zX4Nhk2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i3ynfr+A24L3hROHM4lPi2+Nj4+vkc+T85YTmDeaW5x/nqegy6LzpRunQ6lvq5etw6/vshu0R7ZzuKO6070DvzPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72bfb794r4Gfio+Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t//9BTFBIcgMAAAEKOs//L46jvwJefAWWwmm9SnLM5GrhRYSTypVfwFbuLIVcbevucI7vXM+W1mwxUsBVaJlhNAv/wjxj/37H953fLyImABE/ln5j8mq+UCp/V3Grfu35/PL61m4Q7h8cATaWwKFKGOxurS/PP6/5VbfyXblUyF+dfCN9zPTo4Q/uFh0/sH1UfaeID4Z7y9mbM96B7dPqCc72hsHxe49t3398TwbjlnmwZokIzcQp+5slpWbj8olryekiDhd/tCRViVpqOrBEVaQidWnOEhaXIpQLLWnDXFRGv7TkhUTilJcQWBGBsVcJiSFde2c1IbJKl2QzIbO805UxTQit0oVTrxJS41THRr2E2Cqd+jIhNzqUswTPdeRSSLEQHUjNWZIj1d60JTrauhhQTaWdHxOyaxufJIRHay7l3JaylvTZVn6jnbaQscTPNHtAPW0yuEY9SKPxhPzS6B797jV6TL/HDc5aBkrdTQ6gboYDUudxQAEMH3BAYfCBZeEHwF0ewKDIAwUcHjiAzwPFsYAHeixtmZh+gwsyxYXJq1y4mueCFLhQKHGhVOaCOFxwKlyozHJBqlyo+lzQGhdqL7jwfJ4LssKF5Q0urG9xQXe5IAEXNORCuM8FOeCCHnEBfEj+9////v8PreAC/nQ4VC6ocEFCLoQBF3SXC7LFBV3nwvoyF5bnuSDPuSA1LtR8LmiVC1WXC26FC5XvuIAyF6TEhVKBC4U8F+QqF65OcWHyDS5ImgvpYwEP9JjxeaCAwwMHKPJAgbs8gMEHPPgAGD7ggMIAHgcUAGY4IHU3OYC6sxyQOjym32M0vEe/e43G6SeNBteoB2mEB9RTNM1QL9MMv9FO0WKWdtlW4FLORcufUA6t4Ue6Kdq8GFBNpR1MUw2m7dQczZBqD5dCioUwncxRLIfOfkkvmA6PetRS6RROvaIVTpnOj61SSgXdfGeTTvIOuitKJRV0e+wVjSCm+6c8CilMFEe/pA/ERDQX0ibMIbqX5iiDSybKqemAKoqUifjFH2mighh+4tLDhYlp9jdaaBYxzjxYowI0Y2I+OH7vcf97fE8G0RPP3pzxDvqVeoKzpqcOf3C36PhBP1HfKeKDYdOjj6XfmLqaL5TKTmW26teez69sbO0G4f7BEeICqITB7tb6yvzzml+drTjlUiF/dfKN9DETcVZQOCD8CQAA0DkAnQEqyADIAD5ZJpBCoiEhFRtFiCQFhPS3cGAAMnouT8a+5X/GcsKf5fwuJXgBew/8LwSYBPzv+2f6X03vn/OHS4/PPYA8VH/s/yHoV+mv/L/nfgN/mf9u6w37a+zv+yBuSAVs231kJf5/CglIsvoTISjuLz6wZ+YM/MH39IbkDz/PJxnCrzWwlkwu1BU7I4Tedl1PQL2bLUFsr4yeLjjdKD3xs88yRXX26vD4tPj7lWBqiWkdzB+erBHsQ8xuxCi5HkKpisfFe9csJ2kJ7hiTb7RfuXKvfzm5elbH7EDa2WYY0UTN1j9pPImgCE9QxPRpsM+JaE7t8Z7+rtB3gtRKxyBKipDVvywn1QrTdrYFmAuwHKLUuDpC1Mwunim+G5cvC6YoFR69KnmYJCQvj2Z8kTtVW63St9htWdwvLb1cShXrLI0Im21rPKf2+JFMSqVm+EFyXh0Ad0QYdgrggXdZ4SUpbMZgnHNrC0lEGlPq9bF82W2i3n9nc8g1/8WbmFf4OhCQM50E48NMBpa2eBtx5jzkX0KM5l+0KQrgaFxZF7zDqIILax78W0lmLECdWKHpzdBylyBoHPBxRYLDPXPsSc5mTEDLhyw+R4YafT/xJu3lTpgAAP7+Glp//CcXxC2SviqI+e8x/u7lPr3TCC2N8q64ICXyAs3g1vm1gERZgRHe+fl9DGVffHhPjTnDAD/7Tjyrh9L8m0vOvRt0fj8qZtHqpp3VFvnc9H7oxDsx23i8A+IgT2EVkEkT4XYLk9Kuk3F1B+ujli2UxqY+tN3OHYHi404AtimsSiWGvmaHsQr6B7fNYXk+4+6VM7PUd1royXo2/7Hs3Kees1/4CIatX4dDwCwE3rWsr6tgJb46Q39pD0BRY99HqX7K9OM5Wi8JVItuO36HlZ5DD6POFeJZt0ti1agYF75cvRou9mq5cla5jPFSJLiggI5PrdnXkdarOw0eoPdA5LVjHl2akxKgKA5IL+fHmiyabqL7+V/nhB7qvosJOv7CTiR0FnBHqFU/Szv/+n8dvkm6NacWprJ+PdvCFm7fXawFUB7VSB12eJzUyLOb7fBDl6AMse1ZxNGMuKXnbSZ0fA0AXeN4Unzy622mtKuh2cpFckO6PuyMB5lO2nil3sLa2zvjD0k0oDGbaZsPY3bT9Yj5sCxnLXx5cH3QIS3s8T+cdNR/5cvOMuuPhDeiCgwUhuCim0MUVQUN5Ju9I6VXoQTzMi93WgkMF38VwyG6ILJx5EIspI///enPLjzs1gL3XHsCLXQLheaL3pNVchlih+/MynaoHYXHM1OQvLHY/hyu/Cbompsd/gF1LoZ/xOFiaGxfwjxVoSmwpcmmLbgK9LvGOXMWKYlIBXxorW+JY2MDlbzGwAipwdEr7g3zCA15es+Ybo9yBNr9cwey6PE+TQCtxB9/Bd7DrTZRhtlSvrynvqcKbO3Vg6f+PWQTTOv16FCC9UiInhyP9OL+4Vk2ALq0eccUflfV0c9sf+sLVWANeUm6ZG9Qoe4fijTz2o7k7SH3sV0mHP1j9X2SfFGfvC+PC/P96Rm5X/k220lRDDNtGUO1xUm2x29i20+b3+5AKfi2Zho5cKXtnlsaBekjHNlMWAarooc9IP+jY2hbJf0Nxx2J/XPpHA9ZbScFW/AiLERXsPtgOEht0U0jvqqrFB6iVTmasJnprta8f1Kj6c8BNafYKFzNfb+eLiuQgUB0qCeMhj00oGU4vypyMhCx/0BEDSmZMqhhmIa+8G0kSbr/26nCeu8Kn1RgndPl4+IynOMijcAnqSTDo/sXE88MDEZnHIrlfEFgvqZQYoSbqMO/gQ633z0Pk1aS7s1wLfF9zpnQM/4UtKaDaXxgffsG9ccfopo1b1Nhs2sWP63UXiceeGIOY8Cku6rdyCr8pa7LP5Clrsgg8Pr7wIHeVT4b0r26d9AMyDvBWGrFniwHYP6RsYqnC4YL328380uK8h/rOqSeo19gY1hHzbRZLg0GWtYPHiX5YA6i5nn/4aDwHBFUF0uHjXNSTFIRnCCPUWj8RuSrCMEdXZE4hO5rPUp4do3yVMTx+6OJdpQQ0qr330Wo677dSENGA9nc+oBHxJ2fCue9l1sZOC2xKjU1LgXfYAOINODS1aC53GHR7wmy49+XOMHY53VX+ux7BaHwIC+LQfDaAi0j/nSwAvvGrvr0PmnD8jdTej5+fjgKnKwXCig5erqYl3w+pH7nbt94lABf/c2Q+EONzqj7hEeKbnmBiqqOb8NB24oFqN/T6D/aFasi/IZdyuQvpnv/lQUUJ3vh5w7zzBuwI0SipsNOVQ/Iou7vceP+1cf3/z7C8jCOn/Eo/BZ8dD8q29v6JbscWfmrmXt8d1fo/8zP1EV5To3EdLhq7qdr5ApIB/qjcvk3bbBjxSJeswMH4vGc4WJ9iFrH5/9+6aQ9TNr9UgShWOFKOBUBo83eau1akBlO7sVg6UcCJRKHPYbBgOnh/ZfGx2/pMPpttIc1KKj8U5aIDTubg77FkdSYzV76LtU95Y5BvsvSxbb9MtpBTfpgUltC169Bs11bs+D09VgL78+GnUW7N8nCQ6+gT/EXOJGz97PMeeglEjHvC0H6kZFnOqQvrekssbv7uSiVMaFTD5vkVRuHy8M6/vX0NibbaQ8ZO/LOcJLAm2yqIO/vtykq6nfeRPiOiwVz+Lh9KKpHyKQgNB/KPBGv1wsRx4ZegTQSV46JNm0cHFiVZMsdtxslPmmZGg9ricZ3/vZoNg227G8biHWG2yvs03f+kiu3M7z+6vyEA+w+gsz6MT4MprbO2ihcpe4bHua+CTMYqV/btfdu3OXOdCsaVnCLQiEyLQQJVSoiOl8eaIIwcKKFJrlyEwsa6BJeBXysrHRueFM2NXlHu4wcxWxzzrJ0mqPl4rZ2p13EOGLvi5JHyyJ+AbLmI8kt8NVVSuUAfLpsCxUFebQtX6oHYas2uVBcTHTDihU9tt9GWcV3GwV9wseXO6Fb811Ne8pP3RpRI1diEaLrAzsx2Dk91fZ+I3vbzxmKhgYFBo4iGunR2JEhyfA3CAXRl/JnOB69w38HayGju9MqmQcZ4I1zLhCb0pnDSAkGWB0m9cEBR0TWXDKeRuu28QNlwQ85SxS54wF44r7T7sd3pMBaomviML9+D2BDTqPzT6lAjnchlc0E/3AZiCbqrJvpApN40JjijsFMzWnKkPt0wFOjISzXv5lxuZBa6P3/Q+6rk/GioQsQvcPgPgKvF+OKCU087JoGCXXw8MDqtAe4LzmGYlQOYCazjgCeSggaECVNuXiKI6BfqPGi1+X3iCknjiJn/p9FIUQy3D4oyw6n2fpmWIaroi4hWM7znEVeViRcsWWRH8AsFisuHicWlvMinEkS8zqxrxrkOifjRTzMLT1zanjFAAAARVhJRk4AAABJSSoACAAAAAEAaYcEAAEAAAAaAAAAAAAAAAEAhpIHADIAAAAsAAAAAAAAAEFTQ0lJAAAAU0RLTjZDR09NQU9QVldYVk8zNTRZTUNQTTQ=" alt="SHEIN">
-  </div>
+<!-- PAGE WRAP -->
+<div class="page-wrap">
 
-  <div class="reward-section">
-    <div class="reward-amount">$750</div>
-    <div class="reward-label">Shein Gift Card</div>
-  </div>
+  <!-- MAIN CARD -->
+  <div class="main-card">
 
-  <div class="divider"></div>
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <!-- Target Bullseye SVG -->
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="19" cy="19" r="17" fill="white" opacity="0.15"/>
+        <circle cx="19" cy="19" r="17" stroke="white" stroke-width="3.5"/>
+        <circle cx="19" cy="19" r="10" stroke="white" stroke-width="3.5"/>
+        <circle cx="19" cy="19" r="3.5" fill="white"/>
+      </svg>
+    </div>
 
-  <div class="steps-section">
-    <div class="step"><div class="step-num">1</div><div class="step-text">Click The Button Below</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-text">Enter Your Basic Info</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-text">Complete 3–5 Deals</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-text">Claim Your Reward</div></div>
-  </div>
+    <!-- Title -->
+    <h1 class="card-title">Claim Your Student Discount</h1>
 
-  <div class="cta-wrap">
-    <a href="#" class="cta-btn">CLAIM YOUR GIFT CARD →</a>
-  </div>
-</div>
+    <!-- Verified -->
+    <div class="verified-row">
+      Verified by TikTok&nbsp;
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="7" cy="7" r="7" fill="#CC0000"/>
+        <path d="M4 7l2 2 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
 
-<!-- FAQ -->
-<div class="faq-section">
-  <div class="faq-item">
-    <div class="faq-q">Is this free?</div>
-    <div class="faq-a">Yes. Completely free, no hidden charges.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">What are deals?</div>
-    <div class="faq-a">Deals are random quick tasks like filling out a form, answering a survey, or testing an app that can be completed in an average of 2–10 mins.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">How fast do I get it?</div>
-    <div class="faq-a">Check your email within 15 minutes and claim it.</div>
-  </div>
-</div>
+    <!-- Section Label -->
+    <span class="section-label">HOW IT WORKS</span>
+
+    <!-- Steps -->
+    <div class="steps-list">
+
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Verify Student Status</div>
+          <div class="step-desc">Quick verification with your .edu email or student ID</div>
+        </div>
+        <span class="step-badge">60 sec</span>
+      </div>
+
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Select Your Offers</div>
+          <div class="step-desc">Choose from 3–5 partner deals to unlock your discount</div>
+        </div>
+        <span class="step-badge">Free</span>
+      </div>
+
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Complete Quick Tasks</div>
+          <div class="step-desc">Surveys, forms or app downloads — 2–10 mins each</div>
+        </div>
+        <span class="step-badge">Easy</span>
+      </div>
+
+      <div class="step-row">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Get Your Discount Code</div>
+          <div class="step-desc">Receive your exclusive Target discount code via email</div>
+        </div>
+        <span class="step-badge">15 min</span>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <a class="cta-btn" href="https://trksy.org/aff_c?offer_id=1598&aff_id=45076" target="_blank" rel="noopener">
+      CLAIM MY DISCOUNT
+    </a>
+
+    <!-- Trustpilot -->
+    <div class="trustpilot-row">
+      <span class="tp-label">Trustpilot</span>
+      <div class="tp-stars">
+        <div class="tp-star">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="white">
+            <polygon points="5.5,0.5 6.9,3.9 10.5,4.1 7.8,6.5 8.7,10 5.5,8.1 2.3,10 3.2,6.5 0.5,4.1 4.1,3.9"/>
+          </svg>
+        </div>
+        <div class="tp-star">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="white">
+            <polygon points="5.5,0.5 6.9,3.9 10.5,4.1 7.8,6.5 8.7,10 5.5,8.1 2.3,10 3.2,6.5 0.5,4.1 4.1,3.9"/>
+          </svg>
+        </div>
+        <div class="tp-star">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="white">
+            <polygon points="5.5,0.5 6.9,3.9 10.5,4.1 7.8,6.5 8.7,10 5.5,8.1 2.3,10 3.2,6.5 0.5,4.1 4.1,3.9"/>
+          </svg>
+        </div>
+        <div class="tp-star">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="white">
+            <polygon points="5.5,0.5 6.9,3.9 10.5,4.1 7.8,6.5 8.7,10 5.5,8.1 2.3,10 3.2,6.5 0.5,4.1 4.1,3.9"/>
+          </svg>
+        </div>
+        <div class="tp-star half">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="white">
+            <polygon points="5.5,0.5 6.9,3.9 10.5,4.1 7.8,6.5 8.7,10 5.5,8.1 2.3,10 3.2,6.5 0.5,4.1 4.1,3.9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /main-card -->
+
+  <!-- BELOW CARD -->
+  <div class="below-card">
+
+    <!-- Trust bar -->
+    <div class="trust-bar">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <!-- Green shield lock - matches "Secure & Private" -->
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2L4 5.5V11C4 14.87 7.1 18.47 11 19.5C14.9 18.47 18 14.87 18 11V5.5L11 2Z" fill="#E6F9F0" stroke="#00A86B" stroke-width="1.4" stroke-linejoin="round"/>
+            <rect x="8" y="10.5" width="6" height="4.5" rx="1" fill="#00A86B" opacity="0.25" stroke="#00A86B" stroke-width="1.1"/>
+            <path d="M9.2 10.5V9C9.2 7.9 10 7 11 7C12 7 12.8 7.9 12.8 9V10.5" stroke="#00A86B" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="trust-label">Secure &amp; Private</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <!-- Green checkmark circle - matches "Instant Qualification" -->
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="8.5" fill="#E6F9F0" stroke="#00A86B" stroke-width="1.4"/>
+            <path d="M7 11L9.5 13.5L15 8.5" stroke="#00A86B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="trust-label">Instant Qualification</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <!-- Purple medal/ribbon - matches "Guaranteed Payout" -->
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="9.5" r="5.5" fill="#F0EEFF" stroke="#7B5CF5" stroke-width="1.4"/>
+            <path d="M11 5.5L12.1 8.1L15 8.4L13 10.2L13.6 13L11 11.6L8.4 13L9 10.2L7 8.4L9.9 8.1L11 5.5Z" fill="#7B5CF5" opacity="0.7"/>
+            <path d="M8 14.5L7 19L11 17L15 19L14 14.5" stroke="#7B5CF5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="trust-label">Guaranteed Reward</span>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-card">
+
+      <div class="faq-item">
+        <div class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">Is this free?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Completely free — no hidden charges, no credit card, no purchase required. Ever.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">What are the partner offers?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Quick tasks like filling out a form, answering a survey, or trying a free app. Each takes an average of 2–10 mins to complete.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">How fast do I get it?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Check your email within 15 minutes of completing your offers. Apply the discount code directly at Target.com checkout.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q">Do I need a Target account?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes — you'll need a Target.com account to redeem your student discount. It's free to create and takes under 2 minutes to set up.</p>
+        </div>
+      </div>
+
+    </div><!-- /faq-card -->
+
+  </div><!-- /below-card -->
+
+  <!-- Disclaimer -->
+  <p class="disclaimer">Offer valid for selected participants only. Subject to availability and terms. Target is a registered trademark of Target Brands, Inc.</p>
+
+</div><!-- /page-wrap -->
 
 <script>
-  const entries = [
-    { name: "Amanda K.", amount: "$450" },
-    { name: "Jessica M.", amount: "$750" },
-    { name: "Priya S.",   amount: "$300" },
-    { name: "Lauren T.",  amount: "$600" },
-    { name: "Mia R.",     amount: "$500" },
-    { name: "Sophia W.",  amount: "$750" },
-    { name: "Chloe B.",   amount: "$400" },
-    { name: "Nina D.",    amount: "$550" },
-    { name: "Aisha K.",   amount: "$350" },
-    { name: "Emma L.",    amount: "$700" },
+  // ── FAQ Accordion ──
+  function toggleFaq(trigger) {
+    const item = trigger.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Popup Notifications ──
+  const notifications = [
+    { initials: 'KL', name: 'Kevin L. from Atlanta',   time: '3 min ago'  },
+    { initials: 'SC', name: 'Sarah C. from Houston',   time: 'just now'   },
+    { initials: 'MR', name: 'Marcus R. from Chicago',  time: '1 min ago'  },
+    { initials: 'TW', name: 'Tasha W. from Miami',     time: '5 min ago'  },
+    { initials: 'BJ', name: 'Brandon J. from LA',      time: '2 min ago'  },
+    { initials: 'AN', name: 'Ashley N. from Phoenix',  time: 'just now'   },
+    { initials: 'DJ', name: 'David J. from Dallas',    time: '4 min ago'  },
   ];
-  const slide = document.getElementById('popupSlide');
+
+  const popup    = document.getElementById('popup');
+  const popAvatar = document.getElementById('popupAvatar');
+  const popName  = document.getElementById('popupName');
+  const popTime  = document.getElementById('popupTime');
+
   let idx = 0;
-  function buildSlides(current, next) {
-    slide.innerHTML = '';
-    [current, next].forEach(e => {
-      const s = document.createElement('span');
-      s.innerHTML = `${e.name} claimed <em>${e.amount}</em>!`;
-      slide.appendChild(s);
-    });
-    slide.style.transition = 'none';
-    slide.style.transform = 'translateY(0)';
+
+  function showNotif() {
+    const n = notifications[idx % notifications.length];
+    popAvatar.textContent = n.initials;
+    popName.textContent   = n.name;
+    popTime.textContent   = n.time;
+    popup.classList.add('visible');
+    setTimeout(() => popup.classList.remove('visible'), 3500);
+    idx++;
   }
-  function rotate() {
-    const current = entries[idx % entries.length];
-    const next    = entries[(idx + 1) % entries.length];
-    buildSlides(current, next);
-    setTimeout(() => {
-      slide.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
-      slide.style.transform  = 'translateY(-22px)';
-      idx = (idx + 1) % entries.length;
-    }, 2800);
-  }
-  rotate();
-  setInterval(rotate, 3500);
+
+  setTimeout(() => {
+    showNotif();
+    setInterval(showNotif, 7000);
+  }, 2000);
 </script>
 </body>
 </html>
