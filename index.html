@@ -8,572 +8,511 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f5eeee;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 28px 16px 48px;
-  }
-
-  .page-wrap {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  /* ── MAIN CARD ── */
-  .main-card {
-    background: #fff;
-    border-radius: 22px;
-    padding: 30px 20px 26px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Logo */
-  .logo-wrap {
-    width: 64px;
-    height: 64px;
-    background: #CC0000;
-    border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(204,0,0,0.30);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-    flex-shrink: 0;
-  }
-
-  /* Title */
-  .card-title {
-    font-size: 24px;
-    font-weight: 800;
-    color: #111;
-    text-align: center;
-    margin-bottom: 6px;
-  }
-
-  /* Verified row */
-  .verified-row {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 22px;
-  }
-
-  /* Section label */
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 1.8px;
-    color: #aaa;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    align-self: flex-start;
-  }
-
-  /* Steps */
-  .steps-list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 18px;
-  }
-
-  .step-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #F7F8F7;
-    border-radius: 13px;
-    padding: 13px 14px;
-    margin-bottom: 7px;
-    border: 1px solid #EDEFED;
-  }
-
-  .step-num {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    background: #FFECEC;
-    border: 1px solid #FFCCCC;
-    color: #CC0000;
-    font-weight: 800;
-    font-size: 14px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body {
-    flex: 1;
-  }
-
-  .step-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #111;
-    line-height: 1.2;
-  }
-
-  .step-desc {
-    font-size: 12px;
-    color: #777;
-    margin-top: 2px;
-    line-height: 1.4;
-  }
-
-  .step-badge {
-    background: #FFECEC;
-    color: #CC0000;
-    font-size: 10px;
-    font-weight: 700;
-    border-radius: 7px;
-    padding: 3px 9px;
-    white-space: nowrap;
-  }
-
-  /* CTA social proof */
-  .cta-social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  .cta-avatars {
-    display: flex;
-    align-items: center;
-  }
-
-  .cta-avatar {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 7px;
-    font-weight: 800;
-    color: #222;
-    margin-left: -6px;
-    flex-shrink: 0;
-  }
-
-  .cta-avatar:first-child { margin-left: 0; }
-
-  .cta-social-text {
-    font-size: 11px;
-    color: #888;
-    line-height: 1.35;
-  }
-
-  .cta-social-text strong {
-    color: #111;
-    font-weight: 700;
-  }
-
-  .cta-stars {
-    display: flex;
-    gap: 1px;
-    align-items: center;
-  }
-
-  .cta-star { color: #F5A623; font-size: 10px; }
-
-  /* CTA */
-  .cta-btn {
-    display: block;
-    width: 100%;
-    background: #CC0000;
-    border-radius: 50px;
-    padding: 18px;
-    font-size: 15px;
-    font-weight: 800;
-    color: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 6px 20px rgba(204,0,0,0.35);
-    margin-bottom: 16px;
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-  }
-
-  .cta-btn:active {
-    transform: scale(0.97);
-    box-shadow: 0 3px 12px rgba(204,0,0,0.25);
-  }
-
-  /* Trustpilot */
-  .trustpilot-row {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    justify-content: center;
-  }
-
-  .tp-label {
-    font-weight: 700;
-    font-size: 14px;
-    color: #191919;
-  }
-
-  .tp-stars {
-    display: flex;
-    gap: 3px;
-  }
-
-  .tp-star {
-    width: 19px;
-    height: 19px;
-    background: #00B67A;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .tp-star.half {
-    background: linear-gradient(90deg, #00B67A 55%, #ddd 55%);
-  }
-
-  /* ── BELOW CARD ── */
-  .below-card {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 12px;
-  }
-
-  /* Trust bar */
-  .trust-bar {
-    background: #fff;
-    border-radius: 14px;
-    padding: 13px 6px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    margin-bottom: 10px;
-  }
-
-  .trust-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding: 0 6px;
-  }
-
-  .trust-item + .trust-item {
-    border-left: 1px solid #F0F0F0;
-  }
-
-  .trust-icon {
-    width: 26px;
-    height: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .trust-label {
-    font-size: 10.5px;
-    font-weight: 700;
-    color: #333;
-    text-align: center;
-    line-height: 1.3;
-  }
-
-  /* Testimonials */
-  .testimonials-section {
-    background: #fff;
-    border-radius: 14px;
-    padding: 14px 0 14px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    margin-bottom: 10px;
-    overflow: hidden;
-  }
-
-  .testimonials-label {
-    font-size: 10px;
-    letter-spacing: 1.8px;
-    color: #aaa;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 12px;
-    padding: 0 16px;
-  }
-
-  .testimonials-scroll {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 4px 16px 10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .testimonials-scroll::-webkit-scrollbar { display: none; }
-
-  .testi-card {
-    min-width: 200px;
-    background: #fff;
-    border-radius: 13px;
-    padding: 14px 14px 12px;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    box-shadow: 0 3px 14px rgba(0,0,0,0.09);
-  }
-
-  .testi-quote {
-    font-size: 12.5px;
-    color: #444;
-    line-height: 1.5;
-    font-style: italic;
-    margin-bottom: 9px;
-  }
-
-  .testi-name {
-    font-size: 11.5px;
-    font-weight: 800;
-    color: #CC0000;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  /* Disclaimer */
-  .disclaimer {
-    font-size: 10.5px;
-    color: #bbb;
-    text-align: center;
-    line-height: 1.55;
-    padding: 4px 8px 2px;
-    margin-bottom: 4px;
-  }
-
-  /* Social proof strip */
-  .social-strip {
-    background: #fff;
-    border-radius: 14px;
-    padding: 13px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-    margin-bottom: 10px;
-  }
-
-  .avatars {
-    display: flex;
-    align-items: center;
-  }
-
-  .avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 700;
-    color: #222;
-    margin-left: -7px;
-    flex-shrink: 0;
-  }
-
-  .avatar:first-child { margin-left: 0; }
-  .av-y { background: #FFD93D; }
-  .av-g { background: #6BCB77; }
-  .av-b { background: #4D96FF; }
-  .av-r { background: #FF6B6B; }
-
-  .social-text {
-    font-size: 12.5px;
-    color: #555;
-    line-height: 1.4;
-  }
-
-  .social-text strong {
-    color: #111;
-  }
-
-  /* FAQ */
-  .faq-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 6px 16px 4px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-  }
-
-  .faq-item {
-    border-bottom: 1px solid #F0F0F0;
-    overflow: hidden;
-  }
-
-  .faq-item:last-child {
-    border-bottom: none;
-  }
-
-  .faq-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 0;
-    cursor: pointer;
-    gap: 10px;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .faq-q {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #1a1a1a;
-    line-height: 1.3;
-    flex: 1;
-  }
-
-  .faq-icon {
-    width: 22px;
-    height: 22px;
-    min-width: 22px;
-    background: #f0f0f0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 400;
-    color: #CC0000;
-    transition: background 0.25s, transform 0.3s;
-    line-height: 1;
-  }
-
-  .faq-item.open .faq-icon {
-    transform: rotate(45deg);
-    background: #FFECEC;
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 120px;
-  }
-
-  .faq-answer p {
-    font-size: 13px;
-    color: #555;
-    padding-bottom: 14px;
-    line-height: 1.55;
-  }
-
-  /* ── POPUP NOTIFICATION ── */
-  .popup-notif {
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    max-width: 390px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 14px;
-    padding: 11px 13px;
-    box-shadow: 0 6px 28px rgba(0,0,0,0.13);
-    border-left: 3px solid #CC0000;
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    z-index: 1000;
-    transform: translateY(-90px);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(.34,1.56,.64,1);
-  }
-
-  .popup-notif.visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .popup-avatar {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    border-radius: 50%;
-    background: #CC0000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-  }
-
-  .popup-body {
-    flex: 1;
-  }
-
-  .popup-name {
-    font-size: 12.5px;
-    font-weight: 700;
-    color: #111;
-    line-height: 1.2;
-  }
-
-  .popup-time {
-    font-size: 11px;
-    color: #CC0000;
-    font-weight: 600;
-    margin-top: 2px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  /* ── RESPONSIVE: mid-range phones ── */
-  @media (max-height: 780px) {
-    body { padding-top: 18px; }
-    .logo-wrap { width: 54px; height: 54px; }
-    .main-card { padding: 22px 20px 20px; }
-    .step-row { padding: 10px 12px; margin-bottom: 6px; }
-    .step-title { font-size: 13px; }
-    .step-desc { font-size: 11.5px; }
-    .cta-btn { padding: 15px; font-size: 14px; }
-    .verified-row { margin-bottom: 16px; }
-  }
-
-  @media (max-height: 700px) {
-    body { padding-top: 12px; }
-    .logo-wrap { width: 46px; height: 46px; }
-    .main-card { padding: 16px 18px; }
-    .step-row { padding: 9px 12px; gap: 10px; }
-    .step-num { width: 26px; height: 26px; min-width: 26px; font-size: 12px; }
-    .step-title { font-size: 13px; }
-    .step-desc { font-size: 11px; }
-    .step-badge { font-size: 9px; padding: 2px 7px; }
-    .cta-btn { padding: 13px; font-size: 13px; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f5eeee;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 28px 16px 48px;
+}
+.page-wrap {
+width: 100%;
+max-width: 400px;
+}
+/* ── MAIN CARD ── */
+.main-card {
+background: #fff;
+border-radius: 22px;
+padding: 30px 20px 26px;
+box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/* Logo */
+.logo-wrap {
+width: 64px;
+height: 64px;
+background: #CC0000;
+border-radius: 16px;
+box-shadow: 0 4px 18px rgba(204,0,0,0.30);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 18px;
+flex-shrink: 0;
+}
+/* Title */
+.card-title {
+font-size: 24px;
+font-weight: 800;
+color: #111;
+text-align: center;
+margin-bottom: 6px;
+}
+/* Verified row */
+.verified-row {
+display: flex;
+align-items: center;
+gap: 5px;
+font-size: 13px;
+color: #555;
+margin-bottom: 22px;
+}
+/* Section label */
+.section-label {
+font-size: 10px;
+letter-spacing: 1.8px;
+color: #aaa;
+font-weight: 600;
+text-transform: uppercase;
+margin-bottom: 10px;
+align-self: flex-start;
+}
+/* Steps */
+.steps-list {
+width: 100%;
+display: flex;
+flex-direction: column;
+margin-bottom: 18px;
+}
+.step-row {
+display: flex;
+align-items: center;
+gap: 12px;
+background: #F7F8F7;
+border-radius: 13px;
+padding: 13px 14px;
+margin-bottom: 7px;
+border: 1px solid #EDEFED;
+}
+.step-num {
+width: 32px;
+height: 32px;
+min-width: 32px;
+background: #FFECEC;
+border: 1px solid #FFCCCC;
+color: #CC0000;
+font-weight: 800;
+font-size: 14px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.step-body {
+flex: 1;
+}
+.step-title {
+font-size: 14px;
+font-weight: 700;
+color: #111;
+line-height: 1.2;
+}
+.step-desc {
+font-size: 12px;
+color: #777;
+margin-top: 2px;
+line-height: 1.4;
+}
+.step-badge {
+background: #FFECEC;
+color: #CC0000;
+font-size: 10px;
+font-weight: 700;
+border-radius: 7px;
+padding: 3px 9px;
+white-space: nowrap;
+}
+/* CTA social proof */
+.cta-social {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+margin-bottom: 16px;
+}
+.cta-avatars {
+display: flex;
+align-items: center;
+}
+.cta-avatar {
+width: 22px;
+height: 22px;
+border-radius: 50%;
+border: 2px solid #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 7px;
+font-weight: 800;
+color: #222;
+margin-left: -6px;
+flex-shrink: 0;
+}
+.cta-avatar:first-child { margin-left: 0; }
+.cta-social-text {
+font-size: 11px;
+color: #888;
+line-height: 1.35;
+}
+.cta-social-text strong {
+color: #111;
+font-weight: 700;
+}
+.cta-stars {
+display: flex;
+gap: 1px;
+align-items: center;
+}
+.cta-star { color: #F5A623; font-size: 10px; }
+/* CTA */
+@keyframes ctaBreathe {
+  0%   { transform: scale(1);    box-shadow: 0 6px 20px rgba(204,0,0,0.40), 0 0 0 0px rgba(204,0,0,0.25); }
+  50%  { transform: scale(1.03); box-shadow: 0 10px 30px rgba(204,0,0,0.55), 0 0 0 10px rgba(204,0,0,0); }
+  100% { transform: scale(1);    box-shadow: 0 6px 20px rgba(204,0,0,0.40), 0 0 0 0px rgba(204,0,0,0.25); }
+}
+.cta-btn {
+display: block;
+width: 100%;
+background: #CC0000;
+border-radius: 50px;
+padding: 18px;
+font-size: 15px;
+font-weight: 800;
+color: #fff;
+text-align: center;
+text-transform: uppercase;
+letter-spacing: 1px;
+box-shadow: 0 6px 20px rgba(204,0,0,0.35), 0 0 0 0 rgba(204,0,0,0.30);
+margin-bottom: 16px;
+cursor: pointer;
+border: none;
+text-decoration: none;
+animation: ctaBreathe 2.2s ease-in-out infinite;
+}
+.cta-btn:active {
+animation: none;
+transform: scale(0.97);
+box-shadow: 0 3px 12px rgba(204,0,0,0.25);
+}
+/* Trustpilot */
+.trustpilot-row {
+display: flex;
+align-items: center;
+gap: 6px;
+justify-content: center;
+}
+.tp-label {
+font-weight: 700;
+font-size: 14px;
+color: #191919;
+}
+.tp-stars {
+display: flex;
+gap: 3px;
+}
+.tp-star {
+width: 19px;
+height: 19px;
+background: #00B67A;
+border-radius: 2px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.tp-star.half {
+background: linear-gradient(90deg, #00B67A 55%, #ddd 55%);
+}
+/* ── BELOW CARD ── */
+.below-card {
+width: 100%;
+max-width: 400px;
+margin-top: 12px;
+}
+/* Trust bar */
+.trust-bar {
+background: #fff;
+border-radius: 14px;
+padding: 13px 6px;
+display: flex;
+align-items: center;
+box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+margin-bottom: 10px;
+}
+.trust-item {
+flex: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5px;
+padding: 0 6px;
+}
+.trust-item + .trust-item {
+border-left: 1px solid #F0F0F0;
+}
+.trust-icon {
+width: 26px;
+height: 26px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.trust-label {
+font-size: 10.5px;
+font-weight: 700;
+color: #333;
+text-align: center;
+line-height: 1.3;
+}
+/* Testimonials */
+.testimonials-section {
+background: #fff;
+border-radius: 14px;
+padding: 14px 0 14px;
+box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+margin-bottom: 10px;
+overflow: hidden;
+}
+.testimonials-label {
+font-size: 10px;
+letter-spacing: 1.8px;
+color: #aaa;
+font-weight: 600;
+text-transform: uppercase;
+text-align: center;
+margin-bottom: 12px;
+padding: 0 16px;
+}
+.testimonials-scroll {
+display: flex;
+gap: 10px;
+overflow-x: auto;
+padding: 4px 16px 10px;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+}
+.testimonials-scroll::-webkit-scrollbar { display: none; }
+.testi-card {
+min-width: 200px;
+background: #fff;
+border-radius: 13px;
+padding: 14px 14px 12px;
+scroll-snap-align: start;
+flex-shrink: 0;
+box-shadow: 0 3px 14px rgba(0,0,0,0.09);
+}
+.testi-quote {
+font-size: 12.5px;
+color: #444;
+line-height: 1.5;
+font-style: italic;
+margin-bottom: 9px;
+}
+.testi-name {
+font-size: 11.5px;
+font-weight: 800;
+color: #CC0000;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+/* Disclaimer */
+.disclaimer {
+font-size: 10.5px;
+color: #bbb;
+text-align: center;
+line-height: 1.55;
+padding: 4px 8px 2px;
+margin-bottom: 4px;
+}
+/* Social proof strip */
+.social-strip {
+background: #fff;
+border-radius: 14px;
+padding: 13px 16px;
+display: flex;
+align-items: center;
+gap: 10px;
+box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+margin-bottom: 10px;
+}
+.avatars {
+display: flex;
+align-items: center;
+}
+.avatar {
+width: 28px;
+height: 28px;
+border-radius: 50%;
+border: 2px solid #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 9px;
+font-weight: 700;
+color: #222;
+margin-left: -7px;
+flex-shrink: 0;
+}
+.avatar:first-child { margin-left: 0; }
+.av-y { background: #FFD93D; }
+.av-g { background: #6BCB77; }
+.av-b { background: #4D96FF; }
+.av-r { background: #FF6B6B; }
+.social-text {
+font-size: 12.5px;
+color: #555;
+line-height: 1.4;
+}
+.social-text strong {
+color: #111;
+}
+/* FAQ */
+.faq-card {
+background: #fff;
+border-radius: 16px;
+padding: 6px 16px 4px;
+box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+.faq-item {
+border-bottom: 1px solid #F0F0F0;
+overflow: hidden;
+}
+.faq-item:last-child {
+border-bottom: none;
+}
+.faq-trigger {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 14px 0;
+cursor: pointer;
+gap: 10px;
+user-select: none;
+-webkit-tap-highlight-color: transparent;
+}
+.faq-q {
+font-size: 13.5px;
+font-weight: 700;
+color: #1a1a1a;
+line-height: 1.3;
+flex: 1;
+}
+.faq-icon {
+width: 22px;
+height: 22px;
+min-width: 22px;
+background: #f0f0f0;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+font-weight: 400;
+color: #CC0000;
+transition: background 0.25s, transform 0.3s;
+line-height: 1;
+}
+.faq-item.open .faq-icon {
+transform: rotate(45deg);
+background: #FFECEC;
+}
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.35s ease;
+}
+.faq-item.open .faq-answer {
+max-height: 120px;
+}
+.faq-answer p {
+font-size: 13px;
+color: #555;
+padding-bottom: 14px;
+line-height: 1.55;
+}
+/* ── POPUP NOTIFICATION ── */
+.popup-notif {
+position: fixed;
+top: 12px;
+left: 12px;
+right: 12px;
+max-width: 390px;
+margin: 0 auto;
+background: #fff;
+border-radius: 14px;
+padding: 11px 13px;
+box-shadow: 0 6px 28px rgba(0,0,0,0.13);
+border-left: 3px solid #CC0000;
+display: flex;
+align-items: center;
+gap: 11px;
+z-index: 1000;
+transform: translateY(-90px);
+opacity: 0;
+transition: all 0.4s cubic-bezier(.34,1.56,.64,1);
+}
+.popup-notif.visible {
+transform: translateY(0);
+opacity: 1;
+}
+.popup-avatar {
+width: 36px;
+height: 36px;
+min-width: 36px;
+border-radius: 50%;
+background: #CC0000;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-size: 12px;
+font-weight: 700;
+}
+.popup-body {
+flex: 1;
+}
+.popup-name {
+font-size: 12.5px;
+font-weight: 700;
+color: #111;
+line-height: 1.2;
+}
+.popup-time {
+font-size: 11px;
+color: #CC0000;
+font-weight: 600;
+margin-top: 2px;
+display: flex;
+align-items: center;
+gap: 4px;
+}
+/* ── RESPONSIVE: mid-range phones ── */
+@media (max-height: 780px) {
+body { padding-top: 18px; }
+.logo-wrap { width: 54px; height: 54px; }
+.main-card { padding: 22px 20px 20px; }
+.step-row { padding: 10px 12px; margin-bottom: 6px; }
+.step-title { font-size: 13px; }
+.step-desc { font-size: 11.5px; }
+.cta-btn { padding: 15px; font-size: 14px; }
+.verified-row { margin-bottom: 16px; }
+}
+@media (max-height: 700px) {
+body { padding-top: 12px; }
+.logo-wrap { width: 46px; height: 46px; }
+.main-card { padding: 16px 18px; }
+.step-row { padding: 9px 12px; gap: 10px; }
+.step-num { width: 26px; height: 26px; min-width: 26px; font-size: 12px; }
+.step-title { font-size: 13px; }
+.step-desc { font-size: 11px; }
+.step-badge { font-size: 9px; padding: 2px 7px; }
+.cta-btn { padding: 13px; font-size: 13px; }
+}
 </style>
 </head>
 <body>
@@ -602,7 +541,6 @@
 
     <!-- Logo -->
     <div class="logo-wrap">
-      <!-- Target Bullseye SVG -->
       <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="19" cy="19" r="17" fill="white" opacity="0.15"/>
         <circle cx="19" cy="19" r="17" stroke="white" stroke-width="3.5"/>
@@ -632,28 +570,28 @@
       <div class="step-row">
         <div class="step-num">1</div>
         <div class="step-body">
-          <div class="step-title">Verify Student Status</div>
-          <div class="step-desc">Quick verification with your .edu email or student ID</div>
+          <div class="step-title">Tap the Claim Button</div>
+          <div class="step-desc">Tap the Claim button and everything's good</div>
         </div>
-        <span class="step-badge">60 sec</span>
+        <span class="step-badge">Instant</span>
       </div>
 
       <div class="step-row">
         <div class="step-num">2</div>
         <div class="step-body">
-          <div class="step-title">Select Your Offers</div>
-          <div class="step-desc">Choose from 3–5 partner deals to unlock your discount</div>
+          <div class="step-title">Answer a Few Questions</div>
+          <div class="step-desc">Enter your name and email to receive your reward</div>
         </div>
-        <span class="step-badge">Free</span>
+        <span class="step-badge">30 sec</span>
       </div>
 
       <div class="step-row">
         <div class="step-num">3</div>
         <div class="step-body">
-          <div class="step-title">Complete Quick Tasks</div>
-          <div class="step-desc">Surveys, forms or app downloads — 2–10 mins each</div>
+          <div class="step-title">Select Your Offers</div>
+          <div class="step-desc">Choose from 3–5 partner deals to unlock your discount</div>
         </div>
-        <span class="step-badge">Easy</span>
+        <span class="step-badge">Free</span>
       </div>
 
       <div class="step-row">
@@ -713,7 +651,6 @@
     <div class="trust-bar">
       <div class="trust-item">
         <div class="trust-icon">
-          <!-- Green shield lock - matches "Secure & Private" -->
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <path d="M11 2L4 5.5V11C4 14.87 7.1 18.47 11 19.5C14.9 18.47 18 14.87 18 11V5.5L11 2Z" fill="#E6F9F0" stroke="#00A86B" stroke-width="1.4" stroke-linejoin="round"/>
             <rect x="8" y="10.5" width="6" height="4.5" rx="1" fill="#00A86B" opacity="0.25" stroke="#00A86B" stroke-width="1.1"/>
@@ -724,7 +661,6 @@
       </div>
       <div class="trust-item">
         <div class="trust-icon">
-          <!-- Green checkmark circle - matches "Instant Qualification" -->
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <circle cx="11" cy="11" r="8.5" fill="#E6F9F0" stroke="#00A86B" stroke-width="1.4"/>
             <path d="M7 11L9.5 13.5L15 8.5" stroke="#00A86B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -734,7 +670,6 @@
       </div>
       <div class="trust-item">
         <div class="trust-icon">
-          <!-- Purple medal/ribbon - matches "Guaranteed Payout" -->
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <circle cx="11" cy="9.5" r="5.5" fill="#F0EEFF" stroke="#7B5CF5" stroke-width="1.4"/>
             <path d="M11 5.5L12.1 8.1L15 8.4L13 10.2L13.6 13L11 11.6L8.4 13L9 10.2L7 8.4L9.9 8.1L11 5.5Z" fill="#7B5CF5" opacity="0.7"/>
@@ -747,7 +682,6 @@
 
     <!-- FAQ -->
     <div class="faq-card">
-
       <div class="faq-item">
         <div class="faq-trigger" onclick="toggleFaq(this)">
           <span class="faq-q">Is this free?</span>
@@ -757,7 +691,6 @@
           <p>Yes. Completely free — no hidden charges, no credit card, no purchase required. Ever.</p>
         </div>
       </div>
-
       <div class="faq-item">
         <div class="faq-trigger" onclick="toggleFaq(this)">
           <span class="faq-q">What are the partner offers?</span>
@@ -767,7 +700,6 @@
           <p>Quick tasks like filling out a form, answering a survey, or trying a free app. Each takes an average of 2–10 mins to complete.</p>
         </div>
       </div>
-
       <div class="faq-item">
         <div class="faq-trigger" onclick="toggleFaq(this)">
           <span class="faq-q">How fast do I get it?</span>
@@ -777,17 +709,6 @@
           <p>Check your email within 15 minutes of completing your offers. Apply the discount code directly at Target.com checkout.</p>
         </div>
       </div>
-
-      <div class="faq-item">
-        <div class="faq-trigger" onclick="toggleFaq(this)">
-          <span class="faq-q">Do I need a Target account?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          <p>Yes — you'll need a Target.com account to redeem your student discount. It's free to create and takes under 2 minutes to set up.</p>
-        </div>
-      </div>
-
     </div><!-- /faq-card -->
 
   </div><!-- /below-card -->
@@ -798,46 +719,45 @@
 </div><!-- /page-wrap -->
 
 <script>
-  // ── FAQ Accordion ──
-  function toggleFaq(trigger) {
-    const item = trigger.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
+// ── FAQ Accordion ──
+function toggleFaq(trigger) {
+  const item = trigger.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
 
-  // ── Popup Notifications ──
-  const notifications = [
-    { initials: 'KL', name: 'Kevin L. from Atlanta',   time: '3 min ago'  },
-    { initials: 'SC', name: 'Sarah C. from Houston',   time: 'just now'   },
-    { initials: 'MR', name: 'Marcus R. from Chicago',  time: '1 min ago'  },
-    { initials: 'TW', name: 'Tasha W. from Miami',     time: '5 min ago'  },
-    { initials: 'BJ', name: 'Brandon J. from LA',      time: '2 min ago'  },
-    { initials: 'AN', name: 'Ashley N. from Phoenix',  time: 'just now'   },
-    { initials: 'DJ', name: 'David J. from Dallas',    time: '4 min ago'  },
-  ];
+// ── Popup Notifications ──
+const notifications = [
+  { initials: 'KL', name: 'Kevin L. from Atlanta',   time: '3 min ago' },
+  { initials: 'SC', name: 'Sarah C. from Houston',   time: 'just now'  },
+  { initials: 'MR', name: 'Marcus R. from Chicago',  time: '1 min ago' },
+  { initials: 'TW', name: 'Tasha W. from Miami',     time: '5 min ago' },
+  { initials: 'BJ', name: 'Brandon J. from LA',      time: '2 min ago' },
+  { initials: 'AN', name: 'Ashley N. from Phoenix',  time: 'just now'  },
+  { initials: 'DJ', name: 'David J. from Dallas',    time: '4 min ago' },
+];
 
-  const popup    = document.getElementById('popup');
-  const popAvatar = document.getElementById('popupAvatar');
-  const popName  = document.getElementById('popupName');
-  const popTime  = document.getElementById('popupTime');
+const popup    = document.getElementById('popup');
+const popAvatar = document.getElementById('popupAvatar');
+const popName  = document.getElementById('popupName');
+const popTime  = document.getElementById('popupTime');
+let idx = 0;
 
-  let idx = 0;
+function showNotif() {
+  const n = notifications[idx % notifications.length];
+  popAvatar.textContent = n.initials;
+  popName.textContent   = n.name;
+  popTime.textContent   = n.time;
+  popup.classList.add('visible');
+  setTimeout(() => popup.classList.remove('visible'), 3500);
+  idx++;
+}
 
-  function showNotif() {
-    const n = notifications[idx % notifications.length];
-    popAvatar.textContent = n.initials;
-    popName.textContent   = n.name;
-    popTime.textContent   = n.time;
-    popup.classList.add('visible');
-    setTimeout(() => popup.classList.remove('visible'), 3500);
-    idx++;
-  }
-
-  setTimeout(() => {
-    showNotif();
-    setInterval(showNotif, 7000);
-  }, 2000);
+setTimeout(() => {
+  showNotif();
+  setInterval(showNotif, 7000);
+}, 2000);
 </script>
 </body>
 </html>
